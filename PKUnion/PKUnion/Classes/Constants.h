@@ -1,12 +1,19 @@
 //
-//  AppDelegate.h
+//  Constants.h
 //  KYCircleMenuDemo
 //
-//  Created by Kjuly on 7/18/12.
+//  Created by Kaijie Yu on 6/24/12.
 //  Copyright (c) 2012 Kjuly. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#pragma mark - Basic Configuration - prefix: KYC
+
+
+
+#pragma mark -
+#pragma mark - View  - prefix: KY
 
 // Button Size
 #define kKYButtonInMiniSize   16.f
@@ -27,8 +34,6 @@
 #define kKYICircleMenuCenterButtonBackground @"KYICircleMenuCenterButtonBackground.png"
 #define kKYICircleMenuButtonImageNameFormat  @"KYICircleMenuButton%.2d.png" // %.2d: 1 - 6
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (nonatomic, strong) UIWindow * window;
+@interface Constants : NSObject
 
 @end
