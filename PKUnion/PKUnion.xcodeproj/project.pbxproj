@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B9C507C1199A527C00C20EE8 /* MainViewMapButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B9C507BD199A527C00C20EE8 /* MainViewMapButtonBackground.png */; };
+		B9C507C2199A527C00C20EE8 /* MainViewMapButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9C507BE199A527C00C20EE8 /* MainViewMapButtonBackground@2x.png */; };
+		B9C507C3199A527C00C20EE8 /* MainViewMapButtonImageNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = B9C507BF199A527C00C20EE8 /* MainViewMapButtonImageNormal.png */; };
+		B9C507C4199A527C00C20EE8 /* MainViewMapButtonImageNormal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9C507C0199A527C00C20EE8 /* MainViewMapButtonImageNormal@2x.png */; };
 		B9F4DB48199A422A00EFAAF6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F4DB47199A422A00EFAAF6 /* QuartzCore.framework */; };
 		B9F4DB4A199A422A00EFAAF6 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F4DB49199A422A00EFAAF6 /* OpenGLES.framework */; };
 		B9F4DB4C199A422A00EFAAF6 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F4DB4B199A422A00EFAAF6 /* OpenAL.framework */; };
@@ -259,6 +263,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B9C507BD199A527C00C20EE8 /* MainViewMapButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainViewMapButtonBackground.png; sourceTree = "<group>"; };
+		B9C507BE199A527C00C20EE8 /* MainViewMapButtonBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MainViewMapButtonBackground@2x.png"; sourceTree = "<group>"; };
+		B9C507BF199A527C00C20EE8 /* MainViewMapButtonImageNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainViewMapButtonImageNormal.png; sourceTree = "<group>"; };
+		B9C507C0199A527C00C20EE8 /* MainViewMapButtonImageNormal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MainViewMapButtonImageNormal@2x.png"; sourceTree = "<group>"; };
 		B9F4DB44199A422A00EFAAF6 /* PKUnion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PKUnion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9F4DB47199A422A00EFAAF6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B9F4DB49199A422A00EFAAF6 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1648,6 +1656,10 @@
 		B9F4DE2B199A429D00EFAAF6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B9C507BD199A527C00C20EE8 /* MainViewMapButtonBackground.png */,
+				B9C507BE199A527C00C20EE8 /* MainViewMapButtonBackground@2x.png */,
+				B9C507BF199A527C00C20EE8 /* MainViewMapButtonImageNormal.png */,
+				B9C507C0199A527C00C20EE8 /* MainViewMapButtonImageNormal@2x.png */,
 				B9F4DE2C199A429D00EFAAF6 /* KYICircleMenuButton01.png */,
 				B9F4DE2D199A429D00EFAAF6 /* KYICircleMenuButton01@2x.png */,
 				B9F4DE2E199A429D00EFAAF6 /* KYICircleMenuButton02.png */,
@@ -1753,6 +1765,7 @@
 				B9F4DE60199A429D00EFAAF6 /* Icon-Small-50.png in Resources */,
 				B9F4DE4D199A429D00EFAAF6 /* Default-Landscape~ipad.png in Resources */,
 				B9F4DE62199A429D00EFAAF6 /* Icon-Small@2x.png in Resources */,
+				B9C507C4199A527C00C20EE8 /* MainViewMapButtonImageNormal@2x.png in Resources */,
 				B9F4DD7B199A422C00EFAAF6 /* LICENSE_CCBReader.txt in Resources */,
 				B9F4DE5C199A429D00EFAAF6 /* Icon-72@2x.png in Resources */,
 				B9F4DE57199A429D00EFAAF6 /* Icon-Small@2x.png in Resources */,
@@ -1763,6 +1776,7 @@
 				B9F4DE6A199A429D00EFAAF6 /* KYICircleMenuButton02@2x.png in Resources */,
 				B9F4DE74199A429D00EFAAF6 /* KYICircleMenuCenterButton@2x.png in Resources */,
 				B9F4DCBD199A422B00EFAAF6 /* LICENSE_cocos2d.txt in Resources */,
+				B9C507C1199A527C00C20EE8 /* MainViewMapButtonBackground.png in Resources */,
 				B9F4DE54199A429D00EFAAF6 /* Icon-Small-50.png in Resources */,
 				B9F4DE66199A429D00EFAAF6 /* Icon@2x.png in Resources */,
 				B9F4DE69199A429D00EFAAF6 /* KYICircleMenuButton02.png in Resources */,
@@ -1778,6 +1792,7 @@
 				B9F4DE63199A429D00EFAAF6 /* Icon-Spotlight-iOS7.png in Resources */,
 				B9F4DE78199A429D00EFAAF6 /* iTunesArtwork in Resources */,
 				B9F4DE5A199A429D00EFAAF6 /* Icon-120.png in Resources */,
+				B9C507C2199A527C00C20EE8 /* MainViewMapButtonBackground@2x.png in Resources */,
 				B9F4DE58199A429D00EFAAF6 /* Icon.png in Resources */,
 				B9F4DE6F199A429D00EFAAF6 /* KYICircleMenuButton05.png in Resources */,
 				B9F4DE68199A429D00EFAAF6 /* KYICircleMenuButton01@2x.png in Resources */,
@@ -1797,6 +1812,7 @@
 				B9F4DE5D199A429D00EFAAF6 /* Icon-76.png in Resources */,
 				B9F4DE77199A429D00EFAAF6 /* Info.plist in Resources */,
 				B9F4DE6D199A429D00EFAAF6 /* KYICircleMenuButton04.png in Resources */,
+				B9C507C3199A527C00C20EE8 /* MainViewMapButtonImageNormal.png in Resources */,
 				B9F4DE65199A429D00EFAAF6 /* Icon.png in Resources */,
 				B9F4DE72199A429D00EFAAF6 /* KYICircleMenuButton06@2x.png in Resources */,
 				B9F4DE4B199A429D00EFAAF6 /* Default-568h@2x.png in Resources */,
