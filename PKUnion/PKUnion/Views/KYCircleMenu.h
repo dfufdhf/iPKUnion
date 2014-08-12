@@ -26,6 +26,7 @@
 @interface KYCircleMenu : UIViewController {
   UIView   * menu_;
   UIButton * centerButton_;
+  UIButton * mapButton_;
   BOOL       isOpening_;
   BOOL       isInProcessing_;
   BOOL       isClosed_;

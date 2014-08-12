@@ -163,9 +163,8 @@ static CGFloat defaultTriangleHypotenuse_,
   }
   
   // Main Button
-  CGRect mainButtonFrame =
-    CGRectMake((CGRectGetWidth(self.view.frame) - centerButtonSize_) * .5f,
-               (CGRectGetHeight(self.view.frame) - centerButtonSize_) * .5f,
+  CGRect mainButtonFrame = CGRectMake((CGRectGetWidth(self.view.frame) - centerButtonSize_) * .5f,
+               CGRectGetHeight(self.view.frame) * .5f,
                centerButtonSize_, centerButtonSize_);
   centerButton_ = [[UIButton alloc] initWithFrame:mainButtonFrame];
   [centerButton_ setBackgroundImage:[UIImage imageNamed:self.centerButtonBackgroundImageName]
@@ -176,6 +175,17 @@ static CGFloat defaultTriangleHypotenuse_,
                     action:@selector(_toggle:)
           forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:centerButton_];
+    
+  //Map Button
+  CGRect mapButtonFrame = CGRectMake((CGRectGetWidth(self.view.frame) - centerButtonSize_) * .5f,
+               CGRectGetHeight(self.view.frame) * .5 - 80,
+               centerButtonSize_, centerButtonSize_);
+  mapButton_ = [[UIButton alloc] initWithFrame:mapButtonFrame];
+  [mapButton_ setBackgroundImage:[UIImage imageNamed:@"MainViewMapButtonBackground"]
+                          forState:UIControlStateNormal];
+  [mapButton_ setImage:[UIImage imageNamed:@"MainViewMapButtonImageNormal"]
+              forState:UIControlStateNormal];
+  [self.view addSubview:mapButton_];
   
   // Setup notification observer
   [self _setupNotificationObserver];
@@ -240,59 +250,6 @@ static CGFloat defaultTriangleHypotenuse_,
                    }];
 }
 
-// Open center menu view
-- (void)open
-{
-  if (isOpening_) return;
-  
-  isInProcessing_ = YES;
-  // Show buttons with animation
-  [UIView animateWithDuration:.3f
-                        delay:0.f
-                      options:UIViewAnimationCurveEaseInOut
-                   animations:^{
-                     [self.menu setAlpha:1.f];
-                     // Compute buttons' frame and set for them, based on |buttonCount|
-                     [self _updateButtonsLayoutWithTriangleHypotenuse:maxBounceOfTriangleHypotenuse_];
-                   }
-                   completion:^(BOOL finished) {
-                     [UIView animateWithDuration:.1f
-                                           delay:0.f
-                                         options:UIViewAnimationCurveEaseInOut
-                                      animations:^{
-                                        [self _updateButtonsLayoutWithTriangleHypotenuse:defaultTriangleHypotenuse_];
-                                      }
-                                      completion:^(BOOL finished) {
-                                        isOpening_ = YES;
-                                        isClosed_ = NO;
-                                        isInProcessing_ = NO;
-                                      }];
-                   }];
-}
-
-// Recover to normal status
-- (void)recoverToNormalStatus
-{
-  [self _updateButtonsLayoutWithTriangleHypotenuse:maxTriangleHypotenuse_];
-  [UIView animateWithDuration:.3f
-                        delay:0.f
-                      options:UIViewAnimationOptionCurveEaseInOut
-                   animations:^{
-                     // Show buttons & slide in to center
-                     [self.menu setAlpha:1.f];
-                     [self _updateButtonsLayoutWithTriangleHypotenuse:minBounceOfTriangleHypotenuse_];
-                   }
-                   completion:^(BOOL finished) {
-                     [UIView animateWithDuration:.1f
-                                           delay:0.f
-                                         options:UIViewAnimationOptionCurveEaseInOut
-                                      animations:^{
-                                        [self _updateButtonsLayoutWithTriangleHypotenuse:defaultTriangleHypotenuse_];
-                                      }
-                                      completion:nil];
-                   }];
-}
-
 #pragma mark - Private Methods
 
 // Setup notification observer
@@ -312,6 +269,60 @@ static CGFloat defaultTriangleHypotenuse_,
   (isClosed_ ? [self open] : [self _close:nil]);
 }
 
+// Open center menu view
+- (void)open
+{
+    if (isOpening_) return;
+    
+    isInProcessing_ = YES;
+    // Show buttons with animation
+    [UIView animateWithDuration:.3f
+                          delay:0.f
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         [self.menu setAlpha:1.f];
+                         // Compute buttons' frame and set for them, based on |buttonCount|
+                         [self _updateButtonsLayoutWithTriangleHypotenuse:maxBounceOfTriangleHypotenuse_];
+                     }
+                     completion:^(BOOL finished) {
+                         [UIView animateWithDuration:.1f
+                                               delay:0.f
+                                             options:UIViewAnimationOptionCurveEaseInOut
+                                          animations:^{
+                                              [self _updateButtonsLayoutWithTriangleHypotenuse:defaultTriangleHypotenuse_];
+                                          }
+                                          completion:^(BOOL finished) {
+                                              isOpening_ = YES;
+                                              isClosed_ = NO;
+                                              isInProcessing_ = NO;
+                                          }];
+                     }];
+    [self _setButtonLayoutTo:0];
+}
+
+// Recover to normal status
+- (void)recoverToNormalStatus
+{
+    [self _updateButtonsLayoutWithTriangleHypotenuse:maxTriangleHypotenuse_];
+    [UIView animateWithDuration:.3f
+                          delay:0.f
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         // Show buttons & slide in to center
+                         [self.menu setAlpha:1.f];
+                         [self _updateButtonsLayoutWithTriangleHypotenuse:minBounceOfTriangleHypotenuse_];
+                     }
+                     completion:^(BOOL finished) {
+                         [UIView animateWithDuration:.1f
+                                               delay:0.f
+                                             options:UIViewAnimationOptionCurveEaseInOut
+                                          animations:^{
+                                              [self _updateButtonsLayoutWithTriangleHypotenuse:defaultTriangleHypotenuse_];
+                                          }
+                                          completion:nil];
+                     }];
+}
+
 // Close menu to hide all buttons around
 - (void)_close:(NSNotification *)notification
 {
@@ -322,7 +333,7 @@ static CGFloat defaultTriangleHypotenuse_,
   // Hide buttons with animation
   [UIView animateWithDuration:.3f
                         delay:0.f
-                      options:UIViewAnimationCurveEaseIn
+                      options:UIViewAnimationOptionCurveEaseIn
                    animations:^{
                      for (UIButton * button in [self.menu subviews])
                        [button setFrame:buttonOriginFrame_];
@@ -333,6 +344,43 @@ static CGFloat defaultTriangleHypotenuse_,
                      isOpening_      = NO;
                      isInProcessing_ = NO;
                    }];
+    [self _setButtonLayoutTo:1];
+}
+
+// Set layouts for buttons
+- (void)_setButtonLayoutTo:(int)state
+{
+    CGPoint cPoint = CGPointMake(centerButton_.frame.origin.x, centerButton_.frame.origin.y);
+    void (^animations)() = ^{
+        CGRect centerMainButtonFrame = CGRectMake(cPoint.x,
+                                                  cPoint.y,
+                                                  centerButtonSize_,
+                                                  centerButtonSize_);
+        CGRect mapButtonFrame        = CGRectMake(cPoint.x,
+                                                  cPoint.y,
+                                                  centerButtonSize_,
+                                                  centerButtonSize_);
+        
+        if (state == 0)
+        {
+            centerMainButtonFrame.origin.y = cPoint.y - centerButtonSize_ / 2;
+            mapButtonFrame.origin.y = - centerButtonSize_ / 2;
+        }
+        if (state == 1)
+        {
+            centerMainButtonFrame.origin.y = cPoint.y + centerButtonSize_ / 2;
+            mapButtonFrame.origin.y = centerMainButtonFrame.origin.y - 80;
+        }
+        
+        [self.centerButton setFrame:centerMainButtonFrame];
+        [mapButton_        setFrame:mapButtonFrame];
+    };
+    
+    [UIView animateWithDuration:.3f
+                          delay:0.f
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:animations
+                     completion:nil];
 }
 
 // Update buttons' layout with the value of triangle hypotenuse that given
